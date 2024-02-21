@@ -14,6 +14,21 @@ This Python script checks the reachability of an SMTP server.
 
 These instructions will get you a copy of the project up and running on your local machine.
 
+## Podman
+
+#### Build Image
+
+```bash
+podman build . -t <repository name>/smtp-checker:1.0.0
+```
+
+#### Push Image
+```bash
+podman push <repository name>/smtp-checker:1.0.0
+```
+
+## Service Documentation
+
 ### Prerequisites
 
 You need Python 3 and pip installed on your machine. You also need the `smtplib` and `yaml` libraries. You can install these with pip:
@@ -41,7 +56,7 @@ pip install pyyaml
 
 1. Clone the repo
     ```bash
-    git clone https://github.com/your_username_/Project-Name.git
+    git git@github.com:ddbyro/smtp-checker.git
     ```
 2. Install the required packages
     ```bash
