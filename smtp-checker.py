@@ -1,6 +1,8 @@
 import time
 import smtplib
 import yaml
+import datetime
+import json
 
 # Function to load configuration from a YAML file
 def load_config():
@@ -18,18 +20,28 @@ sleep_time = config['sleep_time']
 
 # Function to test the reachability of an SMTP server
 def test_smtp_server(host, port=25):
+    timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    output = {}
     try:
         server = smtplib.SMTP(host, port)  # Connect to the SMTP server
         server.ehlo()  # Send the EHLO command to the SMTP server
-        print(f'The SMTP server "{smtp_server}" on port "{smtp_port}" is reachable.')  # Print a success message
+        output = {
+            "timestamp": timestamp,
+            "message": f'The SMTP server "{smtp_server}" on port "{smtp_port}" is reachable.',
+            "error": None
+        }
     except Exception as e:
-        print(f'Could not reach the SMTP server - "{smtp_server}" on port "{smtp_port}".')  # Print an error message
-        print("Error:", e)  # Print the exception
+        output = {
+            "timestamp": timestamp,
+            "message": f'Could not reach the SMTP server - "{smtp_server}" on port "{smtp_port}".',
+            "error": str(e)
+        }
     finally:
         try:
             server.quit()  # Close the connection to the SMTP server
         except:
             pass  # If the connection is already closed, do nothing
+    print(json.dumps(output))  # Print the output as a JSON string
 
 # Infinite loop to continuously test the SMTP server
 while True:
