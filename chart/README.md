@@ -28,14 +28,15 @@ helm uninstall my-release
 
 The following table lists the configurable parameters of the SMTP Checker chart and their default values.
 
-| Parameter                | Description             | Default        |
-| ------------------------ | ----------------------- | -------------- |
-| `replicaCount`           | Number of replicas      | `1`            |
-| `image.repository`       | Image repository        | `<image repository>/smtp-checker` |
-| `image.tag`              | Image tag               | `1.0.0`        |
-| `image.pullPolicy`       | Image pull policy       | `IfNotPresent` |
-| `config.smtp_server`     | SMTP server             | `smtp.gmail.com` |
-| `config.smtp_port`       | SMTP port               | `587`          |
+| Parameter            | Description                      | Default                           |
+|----------------------|----------------------------------|-----------------------------------|
+| `replicaCount`       | Number of replicas               | `1`                               |
+| `image.repository`   | Image repository                 | `<image repository>/smtp-checker` |
+| `image.tag`          | Image tag                        | `1.0.0`                           |
+| `image.pullPolicy`   | Image pull policy                | `IfNotPresent`                    |
+| `config.smtp_server` | SMTP server                      | `smtp.gmail.com`                  |
+| `config.smtp_port`   | SMTP port                        | `587`                             |
+| `config.sleep_time`        | sleep_time before checking again | `30`                              |
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm install`. For example,
 
