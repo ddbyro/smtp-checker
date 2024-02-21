@@ -1,6 +1,6 @@
 # SMTP Checker
 
-The overall function of `smtp-checker.py` is to continuously check the reachability of an SMTP (Simple Mail Transfer Protocol) server.
+The overall function of `smtp-checker.py` is to continuously check the reachability of an SMTP (Simple Mail Transfer Protocol) server.  
 At a a set interval the service will reach out to the configured server via SMTP using the EHLO command.
 
 #### EHLO (Extended Hello)
