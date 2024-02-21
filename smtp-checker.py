@@ -14,6 +14,7 @@ config = load_config()
 # Extract the SMTP server and port from the configuration
 smtp_server = config['smtp_server']
 smtp_port = config['smtp_port']
+sleep_time = config['sleep_time']
 
 # Function to test the reachability of an SMTP server
 def test_smtp_server(host, port=25):
@@ -33,4 +34,4 @@ def test_smtp_server(host, port=25):
 # Infinite loop to continuously test the SMTP server
 while True:
     test_smtp_server(smtp_server, smtp_port)  # Test the SMTP server
-    time.sleep(30)  # Wait for 30 seconds before testing again
+    time.sleep(sleep_time)  # Wait for sleep_time seconds before testing again

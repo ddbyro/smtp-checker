@@ -2,3 +2,5 @@
 smtp_server: smtp.gmail.com
 # The SMTP server port
 smtp_port: 587
+# Wait for sleep_time seconds before testing again
+sleep_time: 30

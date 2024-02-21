@@ -11,3 +11,5 @@ data:
     smtp_server: {{ .Values.config.smtp_server }}
     # The SMTP server port, taken from the chart's values
     smtp_port: {{ .Values.config.smtp_port }}
+    # Wait for sleep_time seconds before testing again
+    sleep_time: {{ .Values.config.sleep_time }}
