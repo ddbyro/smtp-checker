@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-smtp-checker-config
+data:
+  config.yaml: |
+    smtp_server: {{ .Values.config.smtp_server }}
+    smtp_port: {{ .Values.config.smtp_port }}

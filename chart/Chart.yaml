@@ -1,0 +1,4 @@
+apiVersion: v2
+name: smtp-checker
+description: A Helm chart for the SMTP Checker application
+version: 1.0.0

@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: {{ .Release.Name }}-smtp-checker
+  labels:
+    app: {{ .Release.Name }}-smtp-checker
+spec:
+  selector:
+    matchLabels:
+      name: {{ .Release.Name }}-smtp-checker
+  template:
+    metadata:
+      labels:
+        name: {{ .Release.Name }}-smtp-checker
+    spec:
+      containers:
+      - name: smtp-checker-container
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        volumeMounts:
+        - name: config-volume
+          mountPath: /app/config.yaml
+          subPath: config.yaml
+      volumes:
+      - name: config-volume
+        configMap:
+          name: {{ .Release.Name }}-smtp-checker-config
