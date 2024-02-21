@@ -12,9 +12,10 @@ image:
 
 # Application configuration
 config:
-  # SMTP server to be used
-  smtp_server: smtp.gmail.com
-  # SMTP server port
-  smtp_port: 587
+  smtp:
+    # SMTP server to be used
+    server: smtp.gmail.com
+    # SMTP server port
+    port: 587
   # Wait for sleep_time seconds before testing again
   sleep_time: 30

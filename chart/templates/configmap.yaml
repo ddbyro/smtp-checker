@@ -8,8 +8,8 @@ data:
   # The data field contains the configuration data
   config.yaml: |
     # The SMTP server to be used, taken from the chart's values
-    smtp_server: {{ .Values.config.smtp_server }}
+    smtp_server: {{ .Values.config.smtp.server }}
     # The SMTP server port, taken from the chart's values
-    smtp_port: {{ .Values.config.smtp_port }}
+    smtp_port: {{ .Values.config.smtp.port }}
     # Wait for sleep_time seconds before testing again
     sleep_time: {{ .Values.config.sleep_time }}
