@@ -1,3 +1,8 @@
+# Helm Instllation
+
+
+
+
 # SMTP Checker
 
 This Python script checks the reachability of an SMTP server.
@@ -6,6 +11,9 @@ This Python script checks the reachability of an SMTP server.
 
 - [Getting Started](#getting-started)
 - [Usage](#usage)
+
+#### Other Documentation Links
+- [Helm Chart Documentation](./chart/README.md)
 
 ## Getting Started
 
