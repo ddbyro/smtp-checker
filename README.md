@@ -1,6 +1,6 @@
 # SMTP Checker
 
-This Python script checks the reachability of an SMTP server.
+The overall function of `smtp-checker.py` is to continuously check the reachability of an SMTP (Simple Mail Transfer Protocol) server.
 
 ## Table of Contents
 
