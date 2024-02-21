@@ -1,6 +1,19 @@
 # SMTP Checker
 
 The overall function of `smtp-checker.py` is to continuously check the reachability of an SMTP (Simple Mail Transfer Protocol) server.
+At a a set interval the service will reach out to the configured server via SMTP using the EHLO command.
+
+#### EHLO (Extended Hello)
+
+ - Same as HELO but tells the server that the client may want to use the Extended SMTP (ESMTP) protocol instead.
+EHLO can be used although you will not use any ESMTP command.
+And servers that do not offer any additional ESMTP commands will normally at least recognize the EHLO command and reply in a proper way.
+
+#### HELO (Hello)
+
+ - The client sends this command to the SMTP server to identify itself and initiate the SMTP conversation.
+   The domain name or IP address of the SMTP client is usually sent as an argument together with the command (e.g. “HELO client.example.com”).
+   If a domain name is used as an argument with the HELO command, it must be a fully qualified domain name (also called FQDN).
 
 ## Table of Contents
 
