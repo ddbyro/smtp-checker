@@ -1,8 +1,13 @@
+# This is a ConfigMap resource in Kubernetes
 apiVersion: v1
 kind: ConfigMap
 metadata:
+  # The name of the ConfigMap, which is based on the release name
   name: {{ .Release.Name }}-smtp-checker-config
 data:
+  # The data field contains the configuration data
   config.yaml: |
+    # The SMTP server to be used, taken from the chart's values
     smtp_server: {{ .Values.config.smtp_server }}
+    # The SMTP server port, taken from the chart's values
     smtp_port: {{ .Values.config.smtp_port }}

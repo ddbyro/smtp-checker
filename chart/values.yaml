@@ -1,10 +1,18 @@
+# Number of replicas for the deployment
 replicaCount: 1
 
+# Image configuration
 image:
+  # Docker image repository
   repository: <image repo>/smtp-checker
+  # Docker image tag
   tag: "1.0.0"
+  # Docker image pull policy
   pullPolicy: IfNotPresent
 
+# Application configuration
 config:
+  # SMTP server to be used
   smtp_server: smtp.gmail.com
+  # SMTP server port
   smtp_port: 587

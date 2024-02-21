@@ -1,2 +1,4 @@
+# The SMTP server to be used
 smtp_server: smtp.gmail.com
+# The SMTP server port
 smtp_port: 587

@@ -1,27 +1,42 @@
+# This is a DaemonSet resource in Kubernetes
 apiVersion: apps/v1
 kind: DaemonSet
 metadata:
+  # The name of the DaemonSet, which is based on the release name
   name: {{ .Release.Name }}-smtp-checker
   labels:
+    # Labels for the DaemonSet
     app: {{ .Release.Name }}-smtp-checker
 spec:
+  # The selector determines which Pods are controlled by this DaemonSet
   selector:
     matchLabels:
       name: {{ .Release.Name }}-smtp-checker
+  # The template for the Pods that will be created by this DaemonSet
   template:
     metadata:
+      # Labels for the Pods
       labels:
         name: {{ .Release.Name }}-smtp-checker
     spec:
+      # The containers that will be run in each Pod
       containers:
       - name: smtp-checker-container
+        # The Docker image for the container, taken from the chart's values
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        # The image pull policy for the container, taken from the chart's values
         imagePullPolicy: {{ .Values.image.pullPolicy }}
+        # The volume mounts for the container
         volumeMounts:
         - name: config-volume
+          # The path where the volume will be mounted in the container
           mountPath: /app/config.yaml
+          # The subPath is the file to expose from the volume
           subPath: config.yaml
+      # The volumes that will be available to the Pods
       volumes:
       - name: config-volume
+        # This volume is backed by a ConfigMap
         configMap:
+          # The name of the ConfigMap, which is based on the release name
           name: {{ .Release.Name }}-smtp-checker-config
