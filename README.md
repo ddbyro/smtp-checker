@@ -1,8 +1,3 @@
-# Helm Instllation
-
-
-
-
 # SMTP Checker
 
 This Python script checks the reachability of an SMTP server.
